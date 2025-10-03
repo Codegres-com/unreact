@@ -34,7 +34,7 @@ fixturesTester({
         const outputPath = path.join(fixtureDir, `output.${opt.templateEngine}`);
         await compileFile(jsCodePath, outputPath, opt);
         const output = await readFile(outputPath, 'utf-8');
-        expect(output).toMatchSnapshot(undefined, opt.templateEngine);
+        expect(output).toMatchSnapshot(opt.templateEngine);
       })
     );
   }
@@ -52,7 +52,7 @@ fixturesTester({
         const SimplePath = path.join(fixtureDir, `Simple.${opt.templateEngine}`);
         const Nested = await readFile(NestedPath, 'utf-8');
         const Simple = await readFile(SimplePath, 'utf-8');
-        expect(`${Nested}\n${Simple}`).toMatchSnapshot(undefined, opt.templateEngine);
+        expect(`${Nested}\n${Simple}`).toMatchSnapshot(opt.templateEngine);
       })
     );
   }

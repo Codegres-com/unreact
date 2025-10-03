@@ -43,7 +43,7 @@ describe('while using unreact cli', () => {
     expect(process.exit.mock.calls.length).toEqual(0);
     expect(console.log.mock.calls.length).toEqual(1);
     expect(console.log.mock.calls[0][0]).toBe(
-      `\u001b[1m\u001b[37m${pkg.name} v${pkg.version}\u001b[39m\u001b[22m`
+      `${pkg.name} v${pkg.version}`
     );
   });
 
@@ -52,9 +52,7 @@ describe('while using unreact cli', () => {
     unreactCli(['--version']);
     expect(process.exit.mock.calls.length).toEqual(2);
     expect(console.log.mock.calls.length).toEqual(4);
-    expect(console.log.mock.calls[0][0]).toBe(
-      `\u001b[1m\u001b[37m${pkg.name} v${pkg.version}\u001b[39m\u001b[22m`
-    );
+    expect(console.log.mock.calls[0][0]).toBe(`${pkg.name} v${pkg.version}`);
     expect(console.log.mock.calls[1][0]).toBe(pkg.version);
   });
 
@@ -64,9 +62,7 @@ describe('while using unreact cli', () => {
     const result = unreactCli([input, '-o', output]);
     expect(process.exit.mock.calls.length).toEqual(0);
     expect(console.log.mock.calls.length).toEqual(1);
-    expect(console.log.mock.calls[0][0]).toBe(
-      `\u001b[1m\u001b[37m${pkg.name} v${pkg.version}\u001b[39m\u001b[22m`
-    );
+    expect(console.log.mock.calls[0][0]).toBe(`${pkg.name} v${pkg.version}`);
     expect(compileFile.mock.calls.length).toEqual(1);
     expect(compileFile.mock.calls[0][0]).toBe(input);
     expect(compileFile.mock.calls[0][1]).toBe(output);
@@ -86,9 +82,7 @@ describe('while using unreact cli', () => {
     const output = 'some-component.ejs';
     const result = unreactCli([input, '-o', output]);
     expect(console.log.mock.calls.length).toEqual(1);
-    expect(console.log.mock.calls[0][0]).toBe(
-      `\u001b[1m\u001b[37m${pkg.name} v${pkg.version}\u001b[39m\u001b[22m`
-    );
+    expect(console.log.mock.calls[0][0]).toBe(`${pkg.name} v${pkg.version}`);
     expect(compileFile.mock.calls.length).toEqual(1);
     expect(compileFile.mock.calls[0][0]).toBe(input);
     expect(compileFile.mock.calls[0][1]).toBe(output);
@@ -106,9 +100,7 @@ describe('while using unreact cli', () => {
     const result = unreactCli([input, '-O', output]);
     expect(process.exit.mock.calls.length).toEqual(0);
     expect(console.log.mock.calls.length).toEqual(1);
-    expect(console.log.mock.calls[0][0]).toBe(
-      `\u001b[1m\u001b[37m${pkg.name} v${pkg.version}\u001b[39m\u001b[22m`
-    );
+    expect(console.log.mock.calls[0][0]).toBe(`${pkg.name} v${pkg.version}`);
     expect(compileDir.mock.calls.length).toEqual(1);
     expect(compileDir.mock.calls[0][0]).toBe(input);
     expect(compileDir.mock.calls[0][1]).toBe(output);
@@ -128,9 +120,7 @@ describe('while using unreact cli', () => {
     const output = 'build';
     const result = unreactCli([input, '-O', output]);
     expect(console.log.mock.calls.length).toEqual(1);
-    expect(console.log.mock.calls[0][0]).toBe(
-      `\u001b[1m\u001b[37m${pkg.name} v${pkg.version}\u001b[39m\u001b[22m`
-    );
+    expect(console.log.mock.calls[0][0]).toBe(`${pkg.name} v${pkg.version}`);
     expect(compileDir.mock.calls.length).toEqual(1);
     expect(compileDir.mock.calls[0][0]).toBe(input);
     expect(compileDir.mock.calls[0][1]).toBe(output);
