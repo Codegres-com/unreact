@@ -3,7 +3,6 @@ import path from 'path';
 import util from 'util';
 import resolveFrom from 'resolve-from';
 import makeDir from 'make-dir';
-import globby from 'globby';
 import parser from './parser';
 import transformation from './transformation';
 import DependencyGraph from './deps-graph';
@@ -122,6 +121,7 @@ export async function compileDir(
     progress = () => {}
   } = {}
 ) {
+  const { globby } = await import('globby');
   const inputDirPath = path.resolve(process.cwd(), inputDir);
   const outputDirPath = path.resolve(process.cwd(), outputDir);
   const globInputDirPath = path.join(inputDirPath, '/**/*.{js,jsx,mjs}');
